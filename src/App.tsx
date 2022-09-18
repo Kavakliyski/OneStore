@@ -1,7 +1,8 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
-import NavBar from './components/NavigationBar/Navbar'
+import { NavBar } from './components/NavigationBar/Navbar'
 
 // pages
 import { Home } from './pages/Home'

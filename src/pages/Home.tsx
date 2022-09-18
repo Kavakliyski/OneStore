@@ -6,7 +6,6 @@ export const Home = () => {
     return (
         <>
 
-            <div style={{ padding: '40px'}} />
             <ImageComponent />
 
 
