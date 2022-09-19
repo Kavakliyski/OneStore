@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
-export const Register = () => {
+export const LoginComponent = () => {
 
     return (
         <>
@@ -27,7 +27,7 @@ export const Register = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                <h2>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h2>
+                <h2>Нямаш профил... <Link to="/register">Натисти тук!</Link></h2>
             </Form>
         </>
     )
