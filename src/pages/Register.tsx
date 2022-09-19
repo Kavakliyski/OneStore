@@ -35,8 +35,8 @@ export const Register = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                
-                if(errorCode === 'auth/invalid-email'){
+
+                if (errorCode === 'auth/invalid-email') {
                     setError('Невалиден имейл адрес');
                 }
 
@@ -51,52 +51,54 @@ export const Register = () => {
 
     return (
         <WrapperLogReg>
-            <Form>
+            <div className='LogRegbackground'>
+                <Form>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Имейл адрес</Form.Label>
-                    <Form.Control
-                        type="email"
-                        placeholder="Enter email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)} />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Имейл адрес</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)} />
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Създай парола</Form.Label>
-                    <Form.Control
-                        autoComplete="new-password"
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)} />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Създай парола</Form.Label>
+                        <Form.Control
+                            autoComplete="new-password"
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)} />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+                    <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
 
-                    <Form.Label>Потвърди парола</Form.Label>
-                    <Form.Control
-                        type="password"
-                        placeholder="Confirm password"
-                        value={confirmPassword}
-                        onChange={e => setConfirmPassword(e.target.value)} />
-                </Form.Group>
+                        <Form.Label>Потвърди парола</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Confirm password"
+                            value={confirmPassword}
+                            onChange={e => setConfirmPassword(e.target.value)} />
+                    </Form.Group>
 
-                <Button
-                    disabled={registering}
-                    variant="success"
-                    type="submit"
-                    onClick={() => signUpWithEmailAndPassword()}
-                >
-                    Submit
-                </Button>
+                    <Button
+                        disabled={registering}
+                        variant="success"
+                        type="submit"
+                        onClick={() => signUpWithEmailAndPassword()}
+                    >
+                        Submit
+                    </Button>
 
-                <ErrorText error={error} />
-                <h3>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h3>
-            </Form>
+                    <ErrorText error={error} />
+                    <h3>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h3>
+                </Form>
+            </div>
         </WrapperLogReg>
     )
 }

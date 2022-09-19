@@ -8,17 +8,20 @@ export const WrapperLogReg = styled.div`
     justify-content: center;
 
 
-    background-color: transparent;
     padding-top: 200px;
+
+    .LogRegbackground{
+        background-color: white;
+        opacity: 0.8;
+        border: 1px solid black;
+        border-radius: 20px;
+        
+    }
 
     Form {
         padding: 20px;
-        width: 50%;
-        border: 10px solid black;
-        border-radius: 50px;
-
+        width: 100%;        
         &:hover {
-            border: 10px solid blue;
         
         }
     }
@@ -26,10 +29,11 @@ export const WrapperLogReg = styled.div`
 
     @media screen and (max-width: 880px) {
         padding-top: 80px;
+        padding-right: 25px;
         
         Form{
-            width: 90%;
-
+            width: auto;
+            padding: 13px;
         }
     }
 `;
