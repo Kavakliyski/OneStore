@@ -7,6 +7,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import ErrorText from '../utils/ErrorText';
 
+import { WrapperLogReg } from '../styles/LoginRegister.styles'
+
 export const Register = () => {
 
     const [registering, setRegistering] = useState<boolean>(false);
@@ -48,10 +50,8 @@ export const Register = () => {
     };
 
     return (
-        <>
-            <Form style={{
-                padding: "200px"
-            }}>
+        <WrapperLogReg>
+            <Form>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Имейл адрес</Form.Label>
@@ -97,6 +97,6 @@ export const Register = () => {
                 <ErrorText error={error} />
                 <h3>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h3>
             </Form>
-        </>
+        </WrapperLogReg>
     )
 }
