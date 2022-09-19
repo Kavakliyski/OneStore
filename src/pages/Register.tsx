@@ -5,12 +5,13 @@ import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import ErrorText from '../utils/ErrorText';
+
 export const Register = () => {
 
     const [registering, setRegistering] = useState<boolean>(false);
     const [email, setEmail] = useState<string>('');
-    const [username, setUsername] = useState<string>('');
-    const [password, setpassword] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [confirmPassword, setConfirmPassword] = useState<string>('');
     const [error, setError] = useState<string>('');
 
@@ -32,14 +33,15 @@ export const Register = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-
-                if (error.code.includes('auth/weak-passowrd')) {
-                    setError('Моля напишете по-силна парола');
-                } else if (error.code.inccludes('auth/email-already-in-use')) {
-                    setError('Имейлът вече e използван')
-                } else {
-                    setError('unable to register.. please try again');
+                
+                if(errorCode === 'auth/invalid-email'){
+                    setError('Невалиден имейл адрес');
                 }
+
+                console.log('====================================');
+                console.log(errorCode);
+                console.log(errorMessage);
+                console.log('====================================');
 
                 setRegistering(false);
             });
@@ -48,36 +50,52 @@ export const Register = () => {
     return (
         <>
             <Form style={{
-                padding: "200px",
-                paddingLeft: "600px",
-                paddingRight: "600px",
+                padding: "200px"
             }}>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Имейл адрес</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasiUsername">
-                    <Form.Label>Потребилтеско име</Form.Label>
-                    <Form.Control type="username" placeholder="Enter username" />
-                </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Създай парола</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                    <Form.Label>Потвърди парола</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm password" />
+                    <Form.Control
+                        autoComplete="new-password"
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+
+                    <Form.Label>Потвърди парола</Form.Label>
+                    <Form.Control
+                        type="password"
+                        placeholder="Confirm password"
+                        value={confirmPassword}
+                        onChange={e => setConfirmPassword(e.target.value)} />
+                </Form.Group>
+
+                <Button
+                    disabled={registering}
+                    variant="success"
+                    type="submit"
+                    onClick={() => signUpWithEmailAndPassword()}
+                >
                     Submit
                 </Button>
-                
-                <h2>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h2>
+
+                <ErrorText error={error} />
+                <h3>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h3>
             </Form>
         </>
     )

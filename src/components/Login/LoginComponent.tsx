@@ -30,8 +30,6 @@ export const LoginComponent = () => {
         <>
             <Form style={{
                 padding: "200px",
-                paddingLeft: "600px",
-                paddingRight: "600px",
             }}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
