@@ -1,4 +1,9 @@
 
+// firebase
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
+import { firebaseConfig } from './config/firebase.config'
+
 // styles
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +22,10 @@ import { NavBar } from './components/NavigationBar/Navbar'
 import { Home } from './pages/Home'
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
+
+
+export const firebase = initializeApp(firebaseConfig.firebaseConfig);
+const analytics = getAnalytics(firebase);
 
 function App() {
 
