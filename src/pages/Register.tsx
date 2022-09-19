@@ -95,7 +95,10 @@ export const Register = () => {
                         Submit
                     </Button>
 
-                    <ErrorText error={error} />
+                    <Form.Group>
+                        <ErrorText error={error} />
+                    </Form.Group>
+
                     <h3>Вече имаш профил... <Link to="/login">Натисни тук!</Link></h3>
                 </Form>
             </div>
