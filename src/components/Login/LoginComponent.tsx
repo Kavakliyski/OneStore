@@ -1,9 +1,30 @@
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useState } from 'react';
 
 export const LoginComponent = () => {
+
+    const auth = getAuth();
+    const navigate = useNavigate();
+    const [authing, setAuthing] = useState(false);
+
+    const signInWithGoogle = async () => {
+        setAuthing(true);
+
+        signInWithPopup(auth, new GoogleAuthProvider())
+            .then(response => {
+                console.log(response.user.uid);
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error);
+                setAuthing(false);
+            })
+    }
 
     return (
         <>
@@ -26,6 +47,10 @@ export const LoginComponent = () => {
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
+                </Button>
+
+                <Button variant="primary" type="submit" onClick={() => signInWithGoogle()} disabled={authing}>
+                    Sign in with Google
                 </Button>
                 <h2>Нямаш профил... <Link to="/register">Натисти тук!</Link></h2>
             </Form>

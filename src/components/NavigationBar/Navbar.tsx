@@ -6,10 +6,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { Link } from 'react-router-dom';
 
+import { getAuth, signOut } from 'firebase/auth';
+
 // styles
 import { Wrapper } from './Navbar.styles';
+import { Button } from 'react-bootstrap';
 
 export const NavBar = () => {
+
+    const auth = getAuth();
+
 
     return (
 
@@ -37,6 +43,7 @@ export const NavBar = () => {
                             {/* <Nav.Link><Link to="/login">Влез в профила</Link></Nav.Link> */}
                         </Nav>
                     </Navbar.Collapse>
+                    <Button onClick={() => signOut(auth)}>Sign out</Button>
                 </Container>
             </Navbar>
         </Wrapper>

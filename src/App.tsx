@@ -22,6 +22,7 @@ import { NavBar } from './components/NavigationBar/Navbar'
 import { Home } from './pages/Home'
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
+import AuthRoute from './components/AuthRoute';
 
 
 export const firebase = initializeApp(firebaseConfig.firebaseConfig);
@@ -35,7 +36,13 @@ function App() {
             <NavBar />
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route
+                        path="/"
+                        element={
+                            <AuthRoute>
+                                <Home />
+                            </AuthRoute>
+                        } />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
 
