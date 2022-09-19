@@ -45,13 +45,16 @@ export const LoginComponent = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-
-                <Button variant="primary" type="submit" onClick={() => signInWithGoogle()} disabled={authing}>
-                    Sign in with Google
-                </Button>
+                <Form.Group className="mb-3">
+                    <Button variant="primary" type="submit">
+                        Влез
+                    </Button>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Button variant="primary" type="submit" onClick={() => signInWithGoogle()} disabled={authing}>
+                        Влез с Google
+                    </Button>
+                </Form.Group>
                 <h2>Нямаш профил... <Link to="/register">Натисти тук!</Link></h2>
             </Form>
         </>

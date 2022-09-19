@@ -43,7 +43,7 @@ export const NavBar = () => {
                             {/* <Nav.Link><Link to="/login">Влез в профила</Link></Nav.Link> */}
                         </Nav>
                     </Navbar.Collapse>
-                    <Button onClick={() => signOut(auth)}>Sign out</Button>
+                        <Button onClick={() => { signOut(auth); }}>Sign out</Button>
                 </Container>
             </Navbar>
         </Wrapper>
