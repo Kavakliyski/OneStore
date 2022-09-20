@@ -6,9 +6,16 @@ export const Home = () => {
     return (
         <>
 
-            <ImageComponent />
+            {/* <ImageComponent /> */}
 
-
+            <div style={{
+                paddingTop: "200px",
+                // marginRight: "90%",
+                width: "auto",
+                backgroundColor: "red",
+            }}>
+                <h1>HomePageHere</h1>
+            </div>
         </>
     )
 }

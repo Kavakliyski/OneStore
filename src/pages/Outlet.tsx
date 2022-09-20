@@ -1,6 +1,16 @@
 
-export const Outlet = () => {
+export const Outlet = () => {    
+
     return (
-        <div>Outlet</div>
+        <div style={{
+            padding: "200px"
+        }}>
+
+            <h1>
+                Outlet
+            </h1>
+        </div>
     )
 }
+
+// export default Outlet;

@@ -3,12 +3,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 
 import { WrapperLogReg } from '../styles/LoginRegister.styles'
 
 export const Login = () => {
+
+    const [signin, setSingin] = useState<boolean>(false);
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
 
     const auth = getAuth();
     const navigate = useNavigate();
@@ -27,6 +32,20 @@ export const Login = () => {
                 setAuthing(false);
             })
     }
+
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            setSingin(false);
+        });
+
+
 
     return (
         <WrapperLogReg>

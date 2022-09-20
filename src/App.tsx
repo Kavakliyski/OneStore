@@ -22,13 +22,18 @@ import { NavBar } from './components/NavigationBar/Navbar'
 import { Home } from './pages/Home'
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
+import { Notfound } from './pages/Notfound';
 import AuthRoute from './components/AuthRoute';
+import { Outlet } from './pages/Outlet';
 
+// routes
+import routes from "./config/routes"
 
 export const firebase = initializeApp(firebaseConfig.firebaseConfig);
 const analytics = getAnalytics(firebase);
 
 function App() {
+
 
     return (
         <div className="App">
@@ -36,15 +41,21 @@ function App() {
             <NavBar />
             <BrowserRouter>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <AuthRoute>
-                                <Home />
-                            </AuthRoute>
-                        } />
+                    {/* <Route path="/" element={<AuthRoute><Home /></AuthRoute>} /> */}
+                    <Route path="/" element={<Home />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/outlet" element={<Outlet />} />
+
+                    <Route path="*" element={<Notfound />} />
+
+                    {routes.map((route, index) =>
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={route.element}
+                        />
+                    )}
 
                 </Routes>
             </BrowserRouter>
