@@ -24,8 +24,8 @@ import { Home } from './pages/Home'
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
 import { Notfound } from './pages/Notfound';
-import { Outlet } from './pages/Outlet';
 import { Newarrivals } from './pages/Newarrivals';
+import { Outlet } from './pages/Outlet';
 
 // routes
 import routes from "./config/routes"

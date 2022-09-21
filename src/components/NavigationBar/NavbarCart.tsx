@@ -25,11 +25,7 @@ export const NavbarCart = () => {
 
     const [cartOpen, setCartOpen] = useState(false);
     const [cartItems, setCartItems] = useState([] as CartItemType[]);
-    {/* const {data, isLoading, error} = useQuery<CartItemType[]>( */ }
-    {/* 'products', */ }
-    {/* getProducts */ }
-    {/* ); */ }
-    {/* console.log(data); */ }
+
 
     const getTotalItems = (items: CartItemType[]) =>
         items.reduce((ack: number, item) => ack + item.amount, 0);
@@ -63,9 +59,6 @@ export const NavbarCart = () => {
             }, [] as CartItemType[])
         );
     };
-
-    // if (isLoading) return <LinearProgress />;
-    // if (error) return <div>Something went wrong ...</div>;
 
     return (
         <>
