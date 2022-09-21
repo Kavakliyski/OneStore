@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 export interface IAuthRouteProps { };
 
-const AuthRoute: React.FunctionComponent<IAuthRouteProps> = props => {
+const AuthRoute = () => {
 
     // const { children } = props;
     const auth = getAuth();

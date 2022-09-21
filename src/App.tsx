@@ -37,10 +37,7 @@ export const firebase = initializeApp(firebaseConfig.firebaseConfig);
 const analytics = getAnalytics(firebase);
 
 
-
-
 function App() {
-
 
     return (
 
