@@ -64,7 +64,8 @@ export const Login = () => {
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" type="submit"
+                        >
                             Влез
                         </Button>
                     </Form.Group>

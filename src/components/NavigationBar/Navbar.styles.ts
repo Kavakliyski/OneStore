@@ -15,7 +15,7 @@ export const NavigationLink = styled(Link)`
     padding: 10px;
 
     border: 2px solid transparent;
-    border-radius: 2px;
+    border-radius: 15px;
 
     &:hover {
         border: 2px solid blue;

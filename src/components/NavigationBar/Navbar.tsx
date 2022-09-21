@@ -8,30 +8,37 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import { getAuth, signOut } from 'firebase/auth';
 
+import { SignedInLinks } from './SignedInLinks';
+import { LoggedOutLinks } from './LoggedOutLinks';
+
 // styles
 import {
     Wrapper,
     NavigationLink,
 } from './Navbar.styles';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
 
     const auth = getAuth();
 
+    let user = auth.currentUser;
+    console.log("user " + user);
+    console.log("user " + user);
 
     return (
 
         <Wrapper>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand> OneStore</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/">OneStore</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><NavigationLink to="/newarrivals">Нови артикули</NavigationLink></Nav.Link>
-                            <Nav.Link><NavigationLink to="/outlet">OUTLET</NavigationLink></Nav.Link>
-                            <NavDropdown title="Продукти" id="collasible-nav-dropdown">
+                            <Nav.Link as={NavigationLink} to="/newarrivals">Нови артикули</Nav.Link>
+                            <Nav.Link as={NavigationLink} to="/outlet">OUTLET</Nav.Link>
+                            <NavDropdown title="Продукти" id="collasible-nav-dropdown" style={{ padding: "3px" }}>
                                 <NavDropdown.Item href="">Тениски</NavDropdown.Item>
                                 <NavDropdown.Item href="">Якета</NavDropdown.Item>
                                 <NavDropdown.Item href="">Чорапи</NavDropdown.Item>
@@ -42,8 +49,8 @@ export const NavBar = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <NavigationLink to="/login"><Button>Влез в профила</Button></NavigationLink>
-                            <NavigationLink><Button onClick={() => { signOut(auth); }}>Sign out</Button></NavigationLink>
+                            <SignedInLinks />
+                            <LoggedOutLinks />
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
