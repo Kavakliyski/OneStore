@@ -47,19 +47,22 @@ export const Outlet = () => {
 
             return [...prev, { ...clickedItem, amount: 1 }];
         });
-
-        return (
-            <OutletContainer>
-
-                <div className="OutletInnerWrapper">
-                    <h1>Outlet</h1>
-{/* 
-                    {items.map(item => (
-                        <h1>item</h1>
-                    ))} */}
-
-                </div>
-            </OutletContainer>
-        )
     }
+
+    return (
+        <OutletContainer>
+
+            <div className="OutletInnerWrapper">
+                <h1>Outlet</h1>
+
+                {items?.map(item => (
+                    <Grid item key={item.id} xs={12} sm={2}>
+                        <Item item={item} handleAddToCart={handleAddToCart} />
+                    </Grid>
+                ))}
+
+            </div>
+        </OutletContainer>
+    )
+
 }

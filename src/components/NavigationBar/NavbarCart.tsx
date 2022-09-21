@@ -87,13 +87,6 @@ export const NavbarCart = () => {
                     <AddShoppingCart />
                 </Badge>
             </StyledButton>
-            <Grid container spacing={3}>
-                {/* {data?.map(item => (
-            <Grid item key={item.id} xs={12} sm={4}>
-                <item item={item} handleAddToCart={handleAddToCart} />
-            </Grid>
-        ))} */}
-            </Grid>
         </>
 
     )
