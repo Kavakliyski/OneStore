@@ -20,9 +20,6 @@ const StyledButton = styled(IconButton)``;
 
 export const NavbarCart = () => {
 
-
-
-
     const [cartOpen, setCartOpen] = useState(false);
     const [cartItems, setCartItems] = useState([] as CartItemType[]);
 
@@ -74,7 +71,7 @@ export const NavbarCart = () => {
                     variant="outlined"
                     size="medium"
                 >
-                    Close
+                    Затвори
                 </Button>
                 <Cart
                     cartItems={cartItems}
@@ -84,7 +81,7 @@ export const NavbarCart = () => {
             </Drawer>
             <StyledButton onClick={() => setCartOpen(true)} >
                 <Badge overlap="rectangular" badgeContent={getTotalItems(cartItems)} color='error' >
-                    <AddShoppingCart />
+                    <AddShoppingCart style={{ color: "white" }} />
                 </Badge>
             </StyledButton>
         </>

@@ -1,20 +1,22 @@
 
+import { Link } from "react-router-dom"
 import { ImageComponent } from "../components/ImageCarousel/ImageCarousel"
 
 
 export const Home = () => {
     return (
         <>
-
-            {/* <ImageComponent /> */}
-
             <div style={{
-                paddingTop: "200px",
-                // marginRight: "90%",
-                width: "auto",
-                backgroundColor: "red",
+                justifyContent: "center",
+                color: "white",
+                textAlign: "center",
             }}>
-                <h1>HomePageHere</h1>
+                <ImageComponent />
+
+                <h1>отиди на outlet</h1>
+                <h2 >
+                    <Link to="/outlet" style={{ textDecoration: "none" }}>outlet</Link>
+                </h2>
             </div>
         </>
     )

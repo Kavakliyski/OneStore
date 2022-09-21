@@ -5,9 +5,8 @@ export const SignedInLinks = () => {
     return (
 
         <>
-
             <NavigationLink to="">
-                <Button>Sign out</Button>
+                <Button>Изход</Button>
             </NavigationLink>
         </>
 

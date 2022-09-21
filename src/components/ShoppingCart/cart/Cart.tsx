@@ -1,5 +1,5 @@
 
-import { CartItemType } from '../../App';
+import { CartItemType } from '../../types/CartItemType'; 
 
 import { Wrapper } from './Cart.style';
 
@@ -23,8 +23,8 @@ const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
 
     return (
         <Wrapper>
-            <h2>Your Shopping Cart</h2>
-            {cartItems.length === 0 ? <p>No items in cart.</p> : null}
+            <h2>Твоята количка</h2>
+            {cartItems.length === 0 ? <p>Все още няма нищо добавено.</p> : null}
             {cartItems.map(item => (
                 <CartItem
                     key={item.id}
@@ -33,7 +33,7 @@ const Cart: React.FC<Props> = ({ cartItems, addToCart, removeFromCart }) => {
                     removeFromCart={removeFromCart}
                 />
             ))}
-            <h2>Total {calculateTotal(cartItems).toFixed(2)} BGN</h2>
+            <h2>Общо {calculateTotal(cartItems).toFixed(2)} BGN</h2>
         </Wrapper>
     )
 }

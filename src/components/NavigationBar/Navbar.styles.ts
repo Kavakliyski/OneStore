@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
 
+    position: sticky;
+    top: 0;
+  
 `
 
 export const NavigationLink = styled(Link)`

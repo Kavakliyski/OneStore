@@ -35,9 +35,12 @@ export const NavBar = () => {
     return (
 
         <Wrapper>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
                 <Container>
                     <Navbar.Brand as={Link} to="/">OneStore</Navbar.Brand>
+
+                    <NavbarCart />
+
                     <Navbar.Toggle aria-controls="navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -54,7 +57,6 @@ export const NavBar = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                        <NavbarCart />
                             <SignedInLinks />
                             <LoggedOutLinks />
                         </Nav>

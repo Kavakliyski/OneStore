@@ -7,10 +7,10 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   flex-direction: column;
   margin-top: 20px;
-  width: 100%;
   border: 1px solid lightblue;
   border-radius: 15px;
   height: 100%;
+  width: auto;
 
   button{
     border-radius: 0 0 20px 20px;

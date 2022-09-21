@@ -25,14 +25,11 @@ export const Outlet = () => {
         fetch('https://fakestoreapi.com/products/')
             .then(res => res.json())
             .then(json => {
-                console.table(json),
-                    setItems(json);
+                // console.table(json),
+                setItems(json);
             });
 
     }, [])
-
-    console.log("here are the items")
-    console.table(items)
 
     const handleAddToCart = (clickedItem: CartItemType) => {
         setCartItems(prev => {
@@ -54,13 +51,16 @@ export const Outlet = () => {
 
             <div className="OutletInnerWrapper">
                 <h1>Outlet</h1>
-
-                {items?.map(item => (
-                    <Grid item key={item.id} xs={12} sm={2}>
-                        <Item item={item} handleAddToCart={handleAddToCart} />
-                    </Grid>
-                ))}
-
+                <hr />
+                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae consectetur adipisci sint nihil non quia beatae minus ea temporibus fugit soluta eos in eaque quasi eligendi accusamus, deserunt, eveniet totam? Voluptatem incidunt accusantium accusamus consequatur, quidem autem veniam corrupti asperiores minus molestias nemo modi illo repudiandae eum quibusdam repellat doloribus.</h3>
+                <hr />
+                <Grid container spacing={2}>
+                    {items?.map(item => (
+                        <Grid item key={item.id} xs={12} sm={3}>
+                            <Item item={item} handleAddToCart={handleAddToCart} />
+                        </Grid>
+                    ))}
+                </Grid>
             </div>
         </OutletContainer>
     )
