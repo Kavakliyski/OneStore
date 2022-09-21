@@ -2,9 +2,7 @@
 export const Outlet = () => {    
 
     return (
-        <div style={{
-            padding: "200px"
-        }}>
+        <div>
 
             <h1>
                 Outlet

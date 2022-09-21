@@ -30,8 +30,14 @@ import { Newarrivals } from './pages/Newarrivals';
 // routes
 import routes from "./config/routes"
 
+// types
+import { CartItemType } from './components/types/CartItemType';
+
 export const firebase = initializeApp(firebaseConfig.firebaseConfig);
 const analytics = getAnalytics(firebase);
+
+
+
 
 function App() {
 

@@ -1,13 +1,18 @@
 
+// bootstrap
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Button } from 'react-bootstrap';
 
+// rrd6
+import { Link } from 'react-router-dom';
 
+// firebase
 import { getAuth, signOut } from 'firebase/auth';
 
+// components
 import { SignedInLinks } from './SignedInLinks';
 import { LoggedOutLinks } from './LoggedOutLinks';
 
@@ -16,8 +21,8 @@ import {
     Wrapper,
     NavigationLink,
 } from './Navbar.styles';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavbarCart } from './NavbarCart';
+
 
 export const NavBar = () => {
 
@@ -49,6 +54,7 @@ export const NavBar = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
+                        <NavbarCart />
                             <SignedInLinks />
                             <LoggedOutLinks />
                         </Nav>
